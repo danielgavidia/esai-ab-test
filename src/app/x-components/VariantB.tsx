@@ -1,5 +1,8 @@
+import { trackEvent } from "@/utils/trackEvent";
+
 const VariantB = () => {
   const handleClick = () => {
+    trackEvent("B", "button_click");
     console.log("User clicked on Variant B button!");
   };
 
