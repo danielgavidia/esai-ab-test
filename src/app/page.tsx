@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import VariantA from "./x-components/VariantA";
-import VariantB from "./x-components/VariantB";
 import LandingPage from "./x-components/LandingPage";
 
 const Page = () => {
@@ -16,10 +14,7 @@ const Page = () => {
 
   return (
     <main className="h-screen flex justify-center">
-      {/* {variant === "A" && <VariantA />}
-      {variant === "B" && <VariantB />}
-      {variant === null && <div>Loading...</div>} */}
-      <LandingPage />
+      {variant && <LandingPage variant={variant} />}
     </main>
   );
 };

@@ -1,7 +1,18 @@
+import { trackEvent } from "@/utils/trackEvent";
 import { House } from "lucide-react";
 
-const LandingPage = () => {
+interface LandingPageProps {
+  variant: "A" | "B";
+}
+
+const LandingPage = ({ variant }: LandingPageProps) => {
   const navButtons = ["For Schools", "Internship", "FAQ", "Blog", "Get AI Certified"];
+
+  const handleClick = () => {
+    trackEvent(variant, "button_click");
+    console.log(`User clicked on Variant ${variant} button!`);
+  };
+
   return (
     <div className="w-full p-4 flex flex-col space-y-4">
       {/* Navbar */}
@@ -25,14 +36,21 @@ const LandingPage = () => {
         </div>
         {/* Join button */}
         <div className="flex-1 flex justify-end">
-          <button className="rounded-3xl border-[0.5px] p-3 w-28 text-sm bg-yellow-100 font-semibold">
+          <button
+            onClick={handleClick}
+            className="rounded-3xl border-[0.5px] p-3 w-28 text-sm bg-yellow-100 font-semibold"
+          >
             Join
           </button>
         </div>
       </div>
 
       {/* Card */}
-      <div className="flex border-[0.5px] rounded-3xl p-2">
+      <div
+        className={`flex border-[0.5px] rounded-3xl p-2 ${
+          variant === "A" ? "" : "flex-row-reverse"
+        }`}
+      >
         {/* Left Section */}
         <div className="w-1/2 p-14 h-full flex flex-col justify-between">
           <p className="text-6xl font-bold">AI-Powered Storytelling for Your Future</p>
@@ -42,7 +60,10 @@ const LandingPage = () => {
             specific schools and more. ESAI's library of tools help you create a custom strategy so
             you can stand out, and get in!
           </p>
-          <button className="rounded-3xl border-[0.5px] p-3 w-44 text-sm bg-yellow-100 font-semibold">
+          <button
+            onClick={handleClick}
+            className="rounded-3xl border-[0.5px] p-3 w-44 text-sm bg-yellow-100 font-semibold"
+          >
             Join
           </button>
         </div>
