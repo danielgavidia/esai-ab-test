@@ -57,8 +57,8 @@ const LandingPage = ({ variant }: LandingPageProps) => {
           <p className="font-semibold">
             Applying to college? Join over 300,000 students saving time and money building their
             story with ESAI. Brainstorm topics, outline essays, edit writing, match skills to
-            specific schools and more. ESAI's library of tools help you create a custom strategy so
-            you can stand out, and get in!
+            specific schools and more. ESAI&#39;s library of tools help you create a custom strategy
+            so you can stand out, and get in!
           </p>
           <button
             onClick={handleClick}
